@@ -145,7 +145,7 @@ namespace Lab1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(448, 358);
+			this->ClientSize = System::Drawing::Size(464, 358);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -155,7 +155,7 @@ namespace Lab1 {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Метод деления отрезка пополам";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -163,13 +163,10 @@ namespace Lab1 {
 #pragma endregion
 	public: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		String^ First_Line= textBox1->Text;
-		int a = System::Convert::ToInt32(First_Line);
-		String^ Second_Line= textBox2->Text;
-		int b = System::Convert::ToInt32(Second_Line);
-		float eps = 0.0001;
+		int a = System::Convert::ToInt32(textBox1->Text);
+		int b = System::Convert::ToInt32(textBox2->Text);
 
-		float result = Count(a, b, eps);
+		float result = Count(a, b);
 		label1->Text = System::Convert::ToString(result);
 
 	}
@@ -177,12 +174,11 @@ namespace Lab1 {
 	public:
 	float Function(int x) {
 		float f;
-		f = log(x) + sqrt(3.73) - pow((pow((x - 2), 2)), 1 / 3.0) - (x / 2);
-		return f;
+		return f = log(x) + sqrt(3.73) - pow((pow((x - 2), 2)), 1 / 3.0) - (x / 2);
 	}
 
-	float Count(int a, int b, float eps) {
-		float result = a+b;
+	float Count(int a, int b) {
+		float eps = 0.0001;
 		int c;
 		while (b - a  < eps) {
 			c = (a + b) / 2;
@@ -195,8 +191,7 @@ namespace Lab1 {
 			}
 
 		}
-		result = (a + b) / 2;
-		return result;
+		return (a + b) / 2;
 	}
 };
 
