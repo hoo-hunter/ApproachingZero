@@ -49,6 +49,7 @@ namespace Lab1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	private:
 		/// <summary>
@@ -63,6 +64,7 @@ namespace Lab1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -71,11 +73,13 @@ namespace Lab1 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(117, 197);
+			this->button1->Location = System::Drawing::Point(215, 352);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(146, 32);
 			this->button1->TabIndex = 0;
@@ -86,21 +90,21 @@ namespace Lab1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(271, 140);
+			this->label1->Location = System::Drawing::Point(318, 245);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(0, 20);
 			this->label1->TabIndex = 1;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(117, 120);
+			this->textBox1->Location = System::Drawing::Point(164, 225);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(31, 26);
 			this->textBox1->TabIndex = 2;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(117, 156);
+			this->textBox2->Location = System::Drawing::Point(164, 261);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(31, 26);
 			this->textBox2->TabIndex = 3;
@@ -108,7 +112,7 @@ namespace Lab1 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(78, 120);
+			this->label2->Location = System::Drawing::Point(125, 225);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(18, 20);
 			this->label2->TabIndex = 4;
@@ -117,7 +121,7 @@ namespace Lab1 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(78, 159);
+			this->label3->Location = System::Drawing::Point(125, 264);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(18, 20);
 			this->label3->TabIndex = 5;
@@ -126,7 +130,7 @@ namespace Lab1 {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(78, 78);
+			this->label4->Location = System::Drawing::Point(125, 183);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(202, 20);
 			this->label4->TabIndex = 6;
@@ -135,17 +139,29 @@ namespace Lab1 {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(262, 120);
+			this->label5->Location = System::Drawing::Point(309, 225);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(93, 20);
+			this->label5->Size = System::Drawing::Size(151, 20);
 			this->label5->TabIndex = 7;
-			this->label5->Text = L"Результат:";
+			this->label5->Text = L"Корень уровнения:";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(-65, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 10, 3, 3);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(726, 146);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->TabIndex = 8;
+			this->pictureBox1->TabStop = false;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(464, 358);
+			this->ClientSize = System::Drawing::Size(579, 446);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -156,6 +172,7 @@ namespace Lab1 {
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"Метод деления отрезка пополам";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -172,26 +189,26 @@ namespace Lab1 {
 	}
 
 	public:
-	float Function(int x) {
-		float f;
-		return f = log(x) + sqrt(3.73) - pow((pow((x - 2), 2)), 1 / 3.0) - (x / 2);
+	float Function(float x) {
+		float f = log(x) + sqrt(3.73) - pow((pow((x - 2), 2)), 1 / 3.0) - (x / 2);
+		return f;
 	}
 
 	float Count(int a, int b) {
 		float eps = 0.0001;
-		int c;
-		while (b - a  < eps) {
-			c = (a + b) / 2;
+		float a1=a,b1=b,c = (a1 + b1) / 2;
 
-			if ((Function(a)* Function(c))<0) {
-				b = c;
+		while (Function(c) > eps) {
+
+			if (Function(c)>0) {
+				b1 = c;
 			}
 			else {
-				a = c;
+				a1 = c;
 			}
-
+			c = (a1 + b1) / 2;
 		}
-		return (a + b) / 2;
+		return c;
 	}
 };
 
